@@ -5,6 +5,6 @@ set(CMAKE_CXX_STANDARD 20)
 find_package(spdlog REQUIRED)
 add_executable(benchmark_spdlog
         split.h
-        split_main.cpp
+        split.cpp
         main.cpp
 )
