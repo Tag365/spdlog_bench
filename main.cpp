@@ -15,5 +15,5 @@ void test_base() {
 
 int main() {
     test_base();
-    ::split::Split::test();
+    Split::test();
 }

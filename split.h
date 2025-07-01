@@ -5,13 +5,12 @@
 #include <spdlog/spdlog.h>
 #define SCOPE(name)               \
     const std::string fns(#name); \
-    spdlog::level::level_enum lpl = spdlog::level::info; \
-    split::Split::PRINT(spdlog::level::trace, fns);
+    spdlog::level::level_enum ll = spdlog::level::info; \
+    Split::PRINT(spdlog::level::trace, fns);
 
-#define BASE_PRINT(...) if (lpl <= spdlog::level::info)  split::Split::PRINT(spdlog::level::info, __VA_ARGS__);
-#define BASE_PRINTDBG(...) if (lpl <= spdlog::level::debug)  split::Split::PRINT(spdlog::level::debug, __VA_ARGS__);
+#define BASE_PRINT(...) if (ll <= spdlog::level::info)  Split::PRINT(spdlog::level::info, __VA_ARGS__);
+#define BASE_PRINTDBG(...) if (ll <= spdlog::level::debug)  Split::PRINT(spdlog::level::debug, __VA_ARGS__);
 
-namespace split {
 class Split {
 public:
     static void test();
@@ -32,5 +31,4 @@ void Split::PRINT(const spdlog::level::level_enum lvl, const FormatString& fmt, 
         spdLogger->log(lvl, {buf.data(), buf.size()});
     }
 }
-} // namespace split
 #endif //SPLIT_H

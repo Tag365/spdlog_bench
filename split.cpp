@@ -4,7 +4,6 @@
 
 #include "split.h"
 
-namespace split {
 std::string Split::lvl2string(const spdlog::level::level_enum lvl) {
     switch (lvl) {
         case spdlog::level::trace:
@@ -43,5 +42,4 @@ void Split::test() {
         BASE_PRINTDBG("Logging message number {}", i);
     }
     BASE_PRINT("Split loggers elapsed: {:f} seconds", sw);
-}
 }
